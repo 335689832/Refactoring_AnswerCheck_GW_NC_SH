@@ -10,6 +10,7 @@ public class StudentData {
         String fName = sc.nextLine();
         //Populate the array and return it
         String[][] arr = (populateArray(fName, false, ","));
+        sc.close();
         return arr;
     }
 
