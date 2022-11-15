@@ -5,7 +5,7 @@ public class Files {
 
     public Files(String rData, String aData, String qData){
 
-        rData = responseData;
+        responseData = rData;
         aData = answerData;
         qData = questionData;
     
