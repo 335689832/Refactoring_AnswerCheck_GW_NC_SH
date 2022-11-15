@@ -16,8 +16,17 @@ public class ResponseData implements Chain {
         Student[] studentList = new Student[studentData.length];
         for(int i = 0; i < studentData.length; i++){
             studentList[i] = new Student();
-            studentList[i].setFirstName(studentList);
+            studentList[i].setStudentNumber(studentData[i][0]);
+            studentList[i].setFirstName(studentData[i][1]);
+            studentList[i].setLastName(studentData[i][2]);
+            studentList[i].setEmail(studentData[i][3]);
+            studentList[i].setResponses(responseList(studentData[i][4]));
         } 
+    }
+
+    private String[] responseList(String responses){
+        String[] r = responses.split(";");
+        return r;
     }
 
     public void printArray(String[][] arr){
