@@ -11,7 +11,13 @@ public class Files {
     
     }
 
-    public String getRData(){ return responseData; }
-    public String getAData(){ return answerData; }
-    public String getQData(){ return questionData; }
+    public String getRData(){ 
+        return responseData; 
+    }
+    public String getAData(){ 
+        return answerData; 
+    }
+    public String getQData(){ 
+        return questionData; 
+    }
 }
