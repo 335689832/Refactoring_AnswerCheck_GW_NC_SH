@@ -24,8 +24,16 @@ public class ResponseData implements Chain {
         } 
     }
 
-    private String[] responseList(String responses){
-        String[] r = responses.split(";");
+    private String[] responseList(String[][] responses){
+
+        String[]
+        for(int i = 0; i < responses.length; i++){
+            for(int j = 0; j < responses[i].length; j++){
+                if(responses[i][j].contains(";")){
+
+                }
+            }
+        }
         return r;
     }
 
