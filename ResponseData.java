@@ -12,6 +12,14 @@ public class ResponseData implements Chain {
         printArray(rData);
     }
 
+    private void methodNamePening(String[][] studentData){
+        Student[] studentList = new Student[studentData.length];
+        for(int i = 0; i < studentData.length; i++){
+            studentList[i] = new Student();
+            studentList[i].setFirstName(studentList);
+        } 
+    }
+
     public void printArray(String[][] arr){
         for(int i = 0; i < arr.length-1; i++){
             for(int j = 0; j < arr[i].length-1; j++){

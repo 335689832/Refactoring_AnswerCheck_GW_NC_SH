@@ -4,7 +4,7 @@ class Student {
     String firstName;
     String lastName;
     String email;
-    String responses;
+    String[] responses;
     String studentNumber;
     int score;
 
@@ -26,7 +26,7 @@ class Student {
         this.email = e;
     }
 
-    void setResponses(String res){
+    void setResponses(String[] res){
         this.responses = res;
     }
 
@@ -51,7 +51,7 @@ class Student {
         return email;
     }
 
-    String getResponses(){
+    String[] getResponses(){
         return responses;
     }
 
