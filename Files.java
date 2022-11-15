@@ -6,8 +6,8 @@ public class Files {
     public Files(String rData, String aData, String qData){
 
         responseData = rData;
-        aData = answerData;
-        qData = questionData;
+        answerData = aData;
+        questionData = qData;
     
     }
 

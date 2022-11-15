@@ -1,9 +1,7 @@
 
 class RefactoredAssignment_GW_NC_SH{
     public static void main(String[] args){
-        // String[][] arr = StudentData.scanStudent();
-
-        // ResponseData.printArray(arr);
+        String[][] arr = StudentData.scanStudent();
 
         Chain test = new ResponseData();
 
