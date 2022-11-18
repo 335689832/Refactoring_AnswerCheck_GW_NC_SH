@@ -6,8 +6,15 @@ class RefactoredAssignment_GW_NC_SH{
         // ResponseData.printArray(arr);
 
         Chain test = new ResponseData();
+        Chain test2 = new AnswerData();
+        Chain test3 = new QuestionData();
 
         Files request = new Files("GW_ArrayAssignment/data/response_data/student_data_q1_response.csv", "", "");
+
+        test.setNext(test2);
+        test2.setNext(test3);
+        
+
         test.process(request);
     }
 }
