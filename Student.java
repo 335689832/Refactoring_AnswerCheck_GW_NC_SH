@@ -1,10 +1,12 @@
+import java.util.*;
+
 class Student {
 
     //Attributes
     String firstName;
     String lastName;
     String email;
-    String[] responses;
+    ArrayList<String> responses;
     String studentNumber;
     int score;
 
@@ -26,7 +28,7 @@ class Student {
         this.email = e;
     }
 
-    void setResponses(String[] res){
+    void setResponses(ArrayList<String> res){
         this.responses = res;
     }
 
@@ -51,7 +53,7 @@ class Student {
         return email;
     }
 
-    String[] getResponses(){
+    ArrayList<String> getResponses(){
         return responses;
     }
 

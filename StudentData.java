@@ -20,46 +20,45 @@ public class StudentData {
     * @param delim string that upon being read, splits string into two columns
     * @return 2D array data that has been populated with the file data
     */
-   public static String[][] populateArray(String file, boolean lower, String delim){
-    BufferedReader br = null;   
-    int lineNum = 0;
-    String[][] data = new String[countLines(file)][];
-    
+    public static String[][] populateArray(String file, boolean lower, String delim){
+        BufferedReader br = null;   
+        int lineNum = 0;
+        String[][] data = new String[countLines(file)][];
         try{		
-        System.out.println("Loading data...");
+            System.out.println("Loading data...");
             br = new BufferedReader(new FileReader(file));
 
-        System.out.println("Populating 2d array...");
-        //if the contentline is not empty, set the data[linenum] to the associated file row
-        String contentLine = br.readLine();
-        while (contentLine != null) {
-            if(!lower){
-                data[lineNum] = contentLine.split(delim, -1);
-            }
-            else{
-                data[lineNum] = contentLine.toLowerCase().split(delim, -1);
-            }
-            lineNum++;
-            contentLine = br.readLine();
-        }			
-        System.out.println("Data loaded sucessfully.");
-        return data;
+            System.out.println("Populating 2d array...");
+            //if the contentline is not empty, set the data[linenum] to the associated file row
+            String contentLine = br.readLine();
+            while (contentLine != null) {
+                if(!lower){
+                    data[lineNum] = contentLine.split(delim, -1);
+                }
+                else{
+                    data[lineNum] = contentLine.toLowerCase().split(delim, -1);
+                }
+                lineNum++;
+                contentLine = br.readLine();
+            }			
+            System.out.println("Data loaded sucessfully.");
+            return data;
         } 
-    catch (IOException e){
+        catch (IOException e){
             e.printStackTrace();
-        System.out.println("Error loading file path");
-        return data;
+            System.out.println("Error loading file path");
+            return data;
         } 
         finally{
             try {
-            if (br != null){
-                br.close();
-            }
+                if (br != null){
+                    br.close();
+                }
             } 
             catch (IOException e) {
-            System.out.println("Error in closing the BufferedReader");
+                System.out.println("Error in closing the BufferedReader");
             }
-    }
+        }
     }
 
     /**Counts the number of rows within a text file
@@ -67,33 +66,33 @@ public class StudentData {
     * @return the number of rows inside the text file. If file is invalid, method returns -1
     */
     public static int countLines(String file){
-    BufferedReader br = null;
-    int count = 0;
-    //Try to read the file
-    try{			
-        br = new BufferedReader(new FileReader(file));	
-        String contentLine = br.readLine();
-        //while the file still has rows, add one for each row
-        while (contentLine != null) {
-            count++;
-            contentLine = br.readLine();
-        }
-        return count;			
-    } 
-    //if file cannot be read return -1 and print message
-    catch (IOException |  NullPointerException e){
-        System.out.println("Input invalid, please enter the correct file name");
-        return -1;
-    }
-    finally{
-        try {
-            if (br != null){
-            br.close();
-            }  
+        BufferedReader br = null;
+        int count = 0;
+        //Try to read the file
+        try{			
+            br = new BufferedReader(new FileReader(file));	
+            String contentLine = br.readLine();
+            //while the file still has rows, add one for each row
+            while (contentLine != null) {
+                count++;
+                contentLine = br.readLine();
+            }
+            return count;			
         } 
-        catch (IOException e) {
-        System.out.println("Error in closing the BufferedReader");
+        //if file cannot be read return -1 and print message
+        catch (IOException |  NullPointerException e){
+            System.out.println("Input invalid, please enter the correct file name");
+            return -1;
         }
-    }
+        finally{
+            try {
+                if (br != null){
+                br.close();
+                }  
+            } 
+            catch (IOException e) {
+                System.out.println("Error in closing the BufferedReader");
+            }
+        }
     }
 }

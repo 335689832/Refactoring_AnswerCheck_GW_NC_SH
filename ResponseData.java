@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class ResponseData implements Chain {
 
     private Chain nextInChain;
@@ -9,10 +11,10 @@ public class ResponseData implements Chain {
     
     public void process(Files request){
         String[][] rData = StudentData.populateArray(request.getRData(), true, ",");
-        printArray(rData);
+        createStudentList(rData);
     }
 
-    private void methodNamePening(String[][] studentData){
+    private void createStudentList(String[][] studentData){
         Student[] studentList = new Student[studentData.length];
         for(int i = 0; i < studentData.length; i++){
             studentList[i] = new Student();
@@ -24,9 +26,9 @@ public class ResponseData implements Chain {
         } 
     }
 
-    private String[] responseList(String[][] responses){
+    private ArrayList<String> responseList(String[][] responses){
 
-        String[]
+        ArrayList<String> r = new ArrayList<String>();
         for(int i = 0; i < responses.length; i++){
             for(int j = 0; j < responses[i].length; j++){
                 if(responses[i][j].contains(";")){
