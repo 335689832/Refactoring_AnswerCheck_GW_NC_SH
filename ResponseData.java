@@ -11,10 +11,13 @@ public class ResponseData implements Chain {
     
     public void process(Files request){
         String[][] rData = StudentData.populateArray(request.getRData(), true, ",");
-        createStudentList(rData);
+        Student[] studentList = createStudentList(rData);
+        for(int i = 0; i < studentList.length;i++){
+            System.out.println(studentList[i].getResponses());
+        }
     }
 
-    private void createStudentList(String[][] studentData){
+    private Student[] createStudentList(String[][] studentData){
         Student[] studentList = new Student[studentData.length];
         for(int i = 0; i < studentData.length; i++){
             studentList[i] = new Student();
@@ -22,20 +25,20 @@ public class ResponseData implements Chain {
             studentList[i].setFirstName(studentData[i][1]);
             studentList[i].setLastName(studentData[i][2]);
             studentList[i].setEmail(studentData[i][3]);
-            studentList[i].setResponses(responseList(studentData));
+            studentList[i].setResponses(responseList(studentData, i));
         } 
+        return studentList;
     }
 
-    private ArrayList<String> responseList(String[][] responses){
+    private ArrayList<String> responseList(String[][] responses, int index){
 
         ArrayList<String> r = new ArrayList<String>();
-        for(int i = 0; i < responses.length; i++){
-            for(int j = 0; j < responses[i].length; j++){
-                if(responses[i][j].contains(";")){
 
+            for(int j = 0; j < responses[index].length; j++){
+                if(responses[index][j].contains("=") || responses[index][j].contains("/")){
+                    r.add(responses[index][j]);
                 }
             }
-        }
         return r;
     }
 
@@ -45,6 +48,12 @@ public class ResponseData implements Chain {
                 System.out.print(arr[i][j] + " ");
             }
             System.out.println();
+        }
+    }
+
+    public void printArrayList(ArrayList<String> arr){
+        for(int i = 0; i < arr.size()-1; i++){
+            System.out.println(arr.get(i));
         }
     }
 }
