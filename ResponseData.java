@@ -20,7 +20,7 @@ public class ResponseData implements Chain {
             studentList[i].setFirstName(studentData[i][1]);
             studentList[i].setLastName(studentData[i][2]);
             studentList[i].setEmail(studentData[i][3]);
-            studentList[i].setResponses(responseList(studentData[i][4]));
+            studentList[i].setResponses(responseList(studentData));
         } 
     }
 
