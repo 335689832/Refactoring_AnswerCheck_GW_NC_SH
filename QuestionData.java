@@ -7,11 +7,11 @@ public class QuestionData implements Chain {
     }   
 
     public void process(Files request){
-        if(!(request.getAData().equals("n/a"))){
-
+        if((request.getAData().equals("n/a"))){
+            System.out.println("Penis");
         }
         else{
-
+            nextInChain.process(request);
         }
     }
 }

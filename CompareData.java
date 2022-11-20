@@ -26,7 +26,7 @@ public class CompareData implements Chain{
                 }   
             }
             studentList[i].setScore(score);
-            System.out.println(score)
+            System.out.println(score);
         }
     }
 

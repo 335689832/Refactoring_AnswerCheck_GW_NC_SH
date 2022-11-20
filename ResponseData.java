@@ -1,25 +1,21 @@
 import java.util.*;
 
-public class ResponseData implements Chain {
+public class ResponseData{
 
-    private Chain nextInChain;
-
-    public Student[] studentList;
-
-    public void setNext(Chain nextChain){
-
-        this.nextInChain = nextChain;
-    }   
+    public static Student[] studentList;
     
-    public void process(Files request){
-        String[][] rData = StudentData.populateArray(request.getRData(), true, ",");
+    public static void process(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the student response array file: ");
+        String file = sc.nextLine();
+        String[][] rData = StudentData.populateArray(file, true, ",");
         Student[] studentList = createStudentList(rData);
         for(int i = 0; i < studentList.length;i++){
             System.out.println(studentList[i].getResponses());
         }
     }
 
-    private Student[] createStudentList(String[][] studentData){
+    private static Student[] createStudentList(String[][] studentData){
         studentList = new Student[studentData.length];
         for(int i = 0; i < studentData.length; i++){
             studentList[i] = new Student();
@@ -32,7 +28,7 @@ public class ResponseData implements Chain {
         return studentList;
     }
 
-    private ArrayList<String> responseList(String[][] responses, int index){
+    private static ArrayList<String> responseList(String[][] responses, int index){
 
         ArrayList<String> r = new ArrayList<String>();
 
@@ -42,21 +38,6 @@ public class ResponseData implements Chain {
                 }
             }
         return r;
-    }
-
-    public void printArray(String[][] arr){
-        for(int i = 0; i < arr.length-1; i++){
-            for(int j = 0; j < arr[i].length-1; j++){
-                System.out.print(arr[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    public void printArrayList(ArrayList<String> arr){
-        for(int i = 0; i < arr.size()-1; i++){
-            System.out.println(arr.get(i));
-        }
     }
 
     public Student[] getStudentList(){

@@ -16,10 +16,15 @@ public class AnswerData implements Chain {
     }
 
     public void process(Files request){
-        String[][] aData = StudentData.populateArray(request.getAData(), true, ",");
-        answerArrayList = storeAnswers(aData);
-        for (int i = 0; i < answerArrayList.size(); i++){
-            System.out.println(answerArrayList.get(i));
+        if(!(request.getAData().equals("n/a"))){
+            String[][] aData = StudentData.populateArray(request.getAData(), true, ",");
+            answerArrayList = storeAnswers(aData);
+            for (int i = 0; i < answerArrayList.size(); i++){
+                System.out.println(answerArrayList.get(i));
+            }
+        }
+        else{
+            nextInChain.process(request);
         }
     }
 
@@ -33,24 +38,6 @@ public class AnswerData implements Chain {
             }
         }
         return a;
-    }
-
-    /**Main body method that calls most other methods
-     * Asks user for various filenames and stores the file data in associated arrays
-     * Depending on user input for the answer file, will either: immediately crosscheck answers and student data, or calculate answers and crosscheck with student data 
-     */
-    public static void scanQuestions(){
-        Scanner sc = new Scanner(System.in);
-        //Get answer data file
-        System.out.println("Please enter the file path to the answer data. \nIf there is no answer data, please type n/a");
-        String aName = sc.nextLine();
-        if(aName.toLowerCase().equals("n/a")){
-            //Get question data and store it in an array
-            System.out.println("Please enter the file path to the question data.");
-            String qName = sc.nextLine();
-            String[][] qArr = populateArray(qName, true, "q");
-        }
-        sc.close();
     }
 
     /**Fills the 2d array being returned with the data from files
