@@ -4,6 +4,8 @@ public class ResponseData implements Chain {
 
     private Chain nextInChain;
 
+    public Student[] studentList;
+
     public void setNext(Chain nextChain){
 
         this.nextInChain = nextChain;
@@ -18,7 +20,7 @@ public class ResponseData implements Chain {
     }
 
     private Student[] createStudentList(String[][] studentData){
-        Student[] studentList = new Student[studentData.length];
+        studentList = new Student[studentData.length];
         for(int i = 0; i < studentData.length; i++){
             studentList[i] = new Student();
             studentList[i].setStudentNumber(studentData[i][0]);
@@ -56,4 +58,9 @@ public class ResponseData implements Chain {
             System.out.println(arr.get(i));
         }
     }
+
+    public Student[] getStudentList(){
+        return studentList;
+    }
+
 }

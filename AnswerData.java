@@ -8,6 +8,8 @@ public class AnswerData implements Chain {
 
     private Chain nextInChain;
 
+    private ArrayList<String> answerArrayList;
+
     public void setNext(Chain nextChain){
 
         this.nextInChain = nextChain;
@@ -15,7 +17,7 @@ public class AnswerData implements Chain {
 
     public void process(Files request){
         String[][] aData = StudentData.populateArray(request.getAData(), true, ",");
-        ArrayList<String> answerArrayList = storeAnswers(aData);
+        answerArrayList = storeAnswers(aData);
         for (int i = 0; i < answerArrayList.size(); i++){
             System.out.println(answerArrayList.get(i));
         }
@@ -131,6 +133,10 @@ public class AnswerData implements Chain {
                 System.out.println("Error in closing the BufferedReader");
             }
         }
+    }
+
+    public ArrayList<String> getAnswerList(){
+        return answerArrayList;
     }
 }
     
