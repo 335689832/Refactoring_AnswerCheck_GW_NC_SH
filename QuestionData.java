@@ -14,7 +14,7 @@ public class QuestionData implements Chain {
             System.out.println("Penis");
         }
         else{
-            nextInChain.process(request);
+            System.out.println("File invalid");
         }
     }
 
