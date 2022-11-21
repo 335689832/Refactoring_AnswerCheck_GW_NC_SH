@@ -17,7 +17,6 @@ public class CompareData{
                 int amount = answerList.size();
                 System.out.println(name + " scored " + score + "/" + amount);
             }
-            sc.close();
         }
     }
 
