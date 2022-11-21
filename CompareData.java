@@ -1,21 +1,9 @@
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class CompareData implements Chain{
-    private Chain nextInChain;
-
-    public void setNext(Chain nextChain){
-
-        this.nextInChain = nextChain;
-    }   
-
-    public void process(Files request){
-
-        ResponseData r = new ResponseData();
-        AnswerData a = new AnswerData();
-
-        Student[] studentList = r.getStudentList();
-        ArrayList<String> answerList = a.getAnswerList();
+public class CompareData{
+    
+    public static void process(Student[] studentList, ArrayList<String> answerList){
 
         for(int i = 0; i < studentList.length; i++){
             int score = 0;
@@ -30,7 +18,7 @@ public class CompareData implements Chain{
         }
     }
 
-    public boolean compareAnswers(String answer, String response){
+    public static boolean compareAnswers(String answer, String response){
         if(answer.equals(response)){
             return true;
         }

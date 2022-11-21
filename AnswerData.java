@@ -122,8 +122,9 @@ public class AnswerData implements Chain {
         }
     }
 
-    public ArrayList<String> getAnswerList(){
+    public ArrayList<String> get(){
         return answerArrayList;
     }
+
 }
     

@@ -1,5 +1,8 @@
+import java.util.*;
+
 public class QuestionData implements Chain {
     private Chain nextInChain;
+    private ArrayList<String> questionData;
 
     public void setNext(Chain nextChain){
 
@@ -13,5 +16,9 @@ public class QuestionData implements Chain {
         else{
             nextInChain.process(request);
         }
+    }
+
+    public ArrayList<String> get(){
+        return questionData;
     }
 }
