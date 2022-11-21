@@ -4,9 +4,13 @@ import java.io.FileWriter;
 
 public class FileWrite {
 
-    /**Write each row of the 2d array arr to a seperate file
-     * @param arr the array to be written to a file
+    /**
+     * Creates new file and writes the score of each student from selected student list
+     * @param studentList List of student objects
+     * @param qAmount Amount of questions
+     * @param fName Name of file to be created
      */
+    
     public static void writeScore(Student[] studentList, int qAmount, String fName){
         try{
             //Write each line of arr into the file
