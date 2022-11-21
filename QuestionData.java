@@ -12,7 +12,7 @@ public class QuestionData implements Chain {
 
     public void process(Files request){
         if((request.getAData().equals("n/a"))){
-            System.out.println("Penis");
+            
         }
         else{
             System.out.println("File invalid");
