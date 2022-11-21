@@ -4,7 +4,7 @@ public class ResponseData{
 
     public static Student[] studentList;
     
-    public Student[] process(){
+    public static Student[] process(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the student response array file: ");
         String file = sc.nextLine();
@@ -13,7 +13,6 @@ public class ResponseData{
         for(int i = 0; i < studentList.length;i++){
             System.out.println(studentList[i].getResponses());
         }
-        sc.close();
         return studentList;
     }
 
