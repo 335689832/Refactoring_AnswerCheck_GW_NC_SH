@@ -2,6 +2,7 @@ import java.util.*;
 
 public class QuestionData implements Chain {
     private Chain nextInChain;
+    
     private ArrayList<String> questionData;
 
     public void setNext(Chain nextChain){

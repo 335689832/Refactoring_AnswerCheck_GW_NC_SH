@@ -27,5 +27,7 @@ class RefactoredAssignment_GW_NC_SH{
 
         CompareData.process(studentResponses, answer.get());
 
+        CompareData.process(studentResponses, question.get());
+
     }
 }

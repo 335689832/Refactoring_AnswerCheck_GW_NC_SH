@@ -4,17 +4,18 @@ import java.util.*;
 public class CompareData{
     
     public static void process(Student[] studentList, ArrayList<String> answerList){
-
-        for(int i = 0; i < studentList.length; i++){
-            int score = 0;
-            for(int j = 0; j < studentList[i].getResponses().size(); j++){
-                ArrayList<String> studentResponse = studentList[i].getResponses();
-                if(compareAnswers(answerList.get(j), studentResponse.get(j))){
-                    score++;
-                }   
+        if (!(answerList == null)){
+            for(int i = 0; i < studentList.length; i++){
+                int score = 0;
+                for(int j = 0; j < studentList[i].getResponses().size(); j++){
+                    ArrayList<String> studentResponse = studentList[i].getResponses();
+                    if(compareAnswers(answerList.get(j), studentResponse.get(j))){
+                        score++;
+                    }   
+                }
+                studentList[i].setScore(score);
+                System.out.println(score);
             }
-            studentList[i].setScore(score);
-            System.out.println(score);
         }
     }
 
