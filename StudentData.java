@@ -1,12 +1,7 @@
-import java.util.Scanner;
-
 public class StudentData extends PopulateArray{
-    public static String[][] scanStudent(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter the file path to the student data.");
-        String fName = sc.nextLine();
+    public static String[][] scanStudent(String fileName){
         //Populate the array and return it
-        String[][] studentArr2D = (populateArray(fName, false, ","));
+        String[][] studentArr2D = (populateArray(fileName, false, ","));
         return studentArr2D;
     }
 

@@ -4,11 +4,8 @@ public class ResponseData extends PopulateArray{
 
     public static Student[] studentList;
     
-    public static Student[] process(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the student response array file: ");
-        String file = sc.nextLine();
-        String[][] rData = populateArray(file, true, ",");
+    public Student[] process(String responseFile){
+        String[][] rData = populateArray(responseFile, true, ",");
         Student[] studentList = createStudentList(rData);
         for(int i = 0; i < studentList.length;i++){
             System.out.println(studentList[i].getResponses());

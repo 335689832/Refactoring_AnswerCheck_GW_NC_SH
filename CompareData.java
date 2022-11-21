@@ -2,12 +2,8 @@ import java.util.*;
 
 public class CompareData{
     
-    public static void process(Student[] studentList, ArrayList<String> answerList){
+    public static void process(Student[] studentList, ArrayList<String> answerList, String fileName){
         if (!(answerList == null)){
-            Scanner sc = new Scanner(System.in);
-            //filename to be written into
-            System.out.println("Please enter the name of the file you'd like to store the data in. \nNote: If you type an already existing file path in, the current file will override it.");
-            String fName = sc.nextLine();
             for(int i = 1; i < studentList.length; i++){
                 int score = 0;
                 for(int j = 0; j < studentList[i].getResponses().size(); j++){
@@ -18,10 +14,9 @@ public class CompareData{
                 }
                 studentList[i].setScore(score);
                 int amount = answerList.size();
-                FileWrite.writeScore(studentList, amount, fName);
+                FileWrite.writeScore(studentList, amount, fileName);
             }
-            System.out.println("Program complete, please check file " + fName + " for results.");
-            sc.close();
+            System.out.println("Program complete, please check file " + fileName + " for results.");
         }
     }
 

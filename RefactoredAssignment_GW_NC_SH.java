@@ -3,10 +3,15 @@ import java.util.Scanner;
 class RefactoredAssignment_GW_NC_SH{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        String[][] arr = StudentData.scanStudent();
+
+        System.out.println("Please enter the file path to the student data.");
+        String studentFile = sc.nextLine();
+        StudentData.scanStudent(studentFile);
 
         ResponseData responses = new ResponseData();
-        Student[] studentResponses = responses.process();
+        System.out.println("Enter the student response array file: ");
+        String responseFile = sc.nextLine();
+        Student[] studentResponses = responses.process(responseFile);
 
         System.out.println("Please enter the file path to the answer data.\nType 'n/a' is you do not want to input answer data");
         String userAnswer = sc.nextLine();
@@ -26,9 +31,13 @@ class RefactoredAssignment_GW_NC_SH{
         answer.setNext(question);
         answer.process(request);
 
-        CompareData.process(studentResponses, answer.get());
+        //filename to be written into
+        System.out.println("Please enter the name of the file you'd like to store the data in. \nNote: If you type an already existing file path in, the current file will override it.");
+        String printFile = sc.nextLine();
+        CompareData.process(studentResponses, answer.get(), printFile);
 
-        CompareData.process(studentResponses, question.get());
+        CompareData.process(studentResponses, question.get(), printFile);
 
+        sc.close();
     }
 }
