@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class CompareData{
@@ -22,6 +21,7 @@ public class CompareData{
                 FileWrite.writeScore(studentList, amount, fName);
             }
             System.out.println("Program complete, please check file " + fName + " for results.");
+            sc.close();
         }
     }
 
