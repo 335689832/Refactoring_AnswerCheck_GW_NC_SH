@@ -13,8 +13,8 @@ public class AnswerData extends PopulateArray implements Chain {
 
     public void process(Files request){
         if(!(request.getAData().equals("n/a"))){
-            String[][] aData = populateArray(request.getAData(), true, ",");
-            answerArrayList = storeAnswers(aData);
+            String[][] answer2D = populateArray(request.getAData(), true, ",");
+            answerArrayList = storeAnswers(answer2D);
             for (int i = 0; i < answerArrayList.size(); i++){
                 System.out.println(answerArrayList.get(i));
             }
@@ -24,19 +24,19 @@ public class AnswerData extends PopulateArray implements Chain {
         }
     }
 
-    public static ArrayList<String> storeAnswers(String[][] answers){
+    public static ArrayList<String> storeAnswers(String[][] arr2D){
         ArrayList<String> a = new ArrayList<String>();
-        for (int i = 0; i < answers.length; i++){
-            for (int j = 0; j < answers[i].length; j++){
-                if (answers[i][j].contains("=") || answers[i][j].contains("/")){
-                    a.add(answers[i][j]);
+        for (int i = 0; i < arr2D.length; i++){
+            for (int j = 0; j < arr2D[i].length; j++){
+                if (arr2D[i][j].contains("=") || arr2D[i][j].contains("/")){
+                    a.add(arr2D[i][j]);
                 }
             }
         }
         return a;
     }
 
-    public ArrayList<String> get(){
+    public ArrayList<String> getArrayList(){
         return answerArrayList;
     }
 

@@ -16,28 +16,28 @@ class Student {
     }
 
     //Setters
-    void setFirstName(String first){
-        this.firstName = first;
+    void setFirstName(String newFirst){
+        this.firstName = newFirst;
     }
 
-    void setLastName(String last){
-        this.lastName = last;
+    void setLastName(String newLast){
+        this.lastName = newLast;
     }
 
-    void setEmail(String e){
-        this.email = e;
+    void setEmail(String newEmail){
+        this.email = newEmail;
     }
 
-    void setResponses(ArrayList<String> res){
-        this.responses = res;
+    void setResponses(ArrayList<String> newResponse){
+        this.responses = newResponse;
     }
 
-    void setStudentNumber(String num){
-        this.studentNumber = num;
+    void setStudentNumber(String newNum){
+        this.studentNumber = newNum;
     }
 
-    void setScore(int s){
-        this.score = s;
+    void setScore(int newScore){
+        this.score = newScore;
     }
 
     //Getters

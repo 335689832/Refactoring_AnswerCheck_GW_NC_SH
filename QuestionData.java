@@ -19,7 +19,7 @@ public class QuestionData implements Chain {
         }
     }
 
-    public ArrayList<String> get(){
+    public ArrayList<String> getArrayList(){
         return questionData;
     }
 }

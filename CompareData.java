@@ -13,8 +13,8 @@ public class CompareData{
                     }   
                 }
                 studentList[i].setScore(score);
-                int amount = answerList.size();
-                FileWrite.writeScore(studentList, amount, fileName);
+                int questionAmount = answerList.size();
+                FileWrite.writeScore(studentList, questionAmount, fileName);
             }
             System.out.println("Program complete, please check file " + fileName + " for results.");
         }
