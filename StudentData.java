@@ -9,9 +9,8 @@ public class StudentData {
         System.out.println("Please enter the file path to the student data.");
         String fName = sc.nextLine();
         //Populate the array and return it
-        String[][] arr = (populateArray(fName, false, ","));
-        sc.close();
-        return arr;
+        String[][] studentArr2D = (populateArray(fName, false, ","));
+        return studentArr2D;
     }
 
     /**Fills the 2d array being returned with the data from files

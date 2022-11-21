@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.*;
 
 public class AnswerData implements Chain {
@@ -17,7 +16,7 @@ public class AnswerData implements Chain {
 
     public void process(Files request){
         if(!(request.getAData().equals("n/a"))){
-            String[][] aData = StudentData.populateArray(request.getAData(), true, ",");
+            String[][] aData = populateArray(request.getAData(), true, ",");
             answerArrayList = storeAnswers(aData);
             for (int i = 0; i < answerArrayList.size(); i++){
                 System.out.println(answerArrayList.get(i));
