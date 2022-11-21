@@ -10,16 +10,21 @@ public class FileWrite {
      * @param qAmount Amount of questions
      * @param fName Name of file to be created
      */
-    
-    public static void writeScore(Student[] studentList, int qAmount, String fName){
+    public static void writeArray(String[][] arr){
+        Scanner sc = new Scanner(System.in);
+
+        //filename to be written into
+        System.out.println("Please enter the name of the file you'd like to store the data in. \nNote: If you type an already existing file path in, the current file will override it.");
+        String fName = sc.nextLine();
+
         try{
             //Write each line of arr into the file
             FileWriter f = new FileWriter(fName);
-            for(int i = 1; i < studentList.length;i++){
+            for(int i = 1; i < arr.length;i++){
                 String line = "";
-                line += studentList[i].getFirstName() + " ";
-                line += studentList[i].getLastName() + ": ";
-                line += "Score " + studentList[i].getScore() + "/" + qAmount;
+                for(int j = 0; j < arr[i].length;j++){
+                    line += arr[i][j];
+                }
                 f.write(line + "\n");
                 f.flush();
             }
@@ -29,5 +34,7 @@ public class FileWrite {
             e.printStackTrace();
             System.out.println("Something went wrong while creating your file.");
         }
+        System.out.println("Program complete, please check file " + fName + " for results.");
+        sc.close();
     }
 }
