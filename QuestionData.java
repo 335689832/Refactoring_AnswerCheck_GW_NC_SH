@@ -1,15 +1,20 @@
 import java.util.*;
 
 public class QuestionData extends PopulateArray implements Chain {
-    private Chain nextInChain;
     
     private ArrayList<String> questionData;
 
+    // Sets next in chain
     public void setNext(Chain nextChain){
-
-        this.nextInChain = nextChain;
     }   
 
+    /**
+     * Takes in request to process
+     * 
+     * Process
+     * Solves questions using system of equations
+     * Returns ArrayList of solved questions
+     */
     public void process(Files request){
         if((request.getAData().equals("n/a"))){
             String[][] question2D = populateArray(request.getQData(), true, ",");
@@ -28,6 +33,9 @@ public class QuestionData extends PopulateArray implements Chain {
         }
     }
 
+    /**
+     * Getter for question ArrayList
+     */
     public ArrayList<String> getArrayList(){
         return questionData;
     }

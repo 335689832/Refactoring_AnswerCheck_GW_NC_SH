@@ -6,11 +6,15 @@ public class AnswerData extends PopulateArray implements Chain {
 
     private ArrayList<String> answerArrayList;
 
+    // Sets next in chain
     public void setNext(Chain nextChain){
-
         this.nextInChain = nextChain;
     }
 
+    /**
+     * Takes in request to process
+     * Process -> Stores and prints out answer data inside ArrayList
+     */
     public void process(Files request){
         if(!(request.getAData().equals("n/a"))){
             String[][] answer2D = populateArray(request.getAData(), true, ",");
@@ -24,6 +28,11 @@ public class AnswerData extends PopulateArray implements Chain {
         }
     }
 
+    /**
+     * Stores answers into ArrayList
+     * @param arr2D Takes 2D Array and converts into ArrayList
+     * @return Completed ArrayList
+     */
     public static ArrayList<String> storeAnswers(String[][] arr2D){
         ArrayList<String> a = new ArrayList<String>();
         for (int i = 0; i < arr2D.length; i++){
@@ -36,6 +45,9 @@ public class AnswerData extends PopulateArray implements Chain {
         return a;
     }
 
+    /**
+     * Getter for answer ArrayList
+     */
     public ArrayList<String> getArrayList(){
         return answerArrayList;
     }
